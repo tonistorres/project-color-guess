@@ -1,7 +1,27 @@
+#title{
+text-align: center;
+}
+
+#rgb-color{
+    text-align: center;
+    font-size: xx-large;
+}
+
+#container-ball{
+    text-align: center;
+}
+
+#answer{
+text-align: center;
+font-size: xx-large;
+font-weight: 800;
+}
 .ball {
+
     border-radius: 50% ;
     border: 1px solid black;
     display: inline-block;
     width: 100px;
     height: 100px;
-  }
+}
+
