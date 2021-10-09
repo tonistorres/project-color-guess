@@ -1,3 +1,4 @@
+// Contribuição: Gabriel Pinheiro
 window.onload = function onload() {
   // eslint-disable-next-line no-use-before-define
   colorResponse();
@@ -11,6 +12,7 @@ window.onload = function onload() {
 // querySelectorAll foi o métod que capturou de fatos as divs que serão trabalhadas no DOM
 const getCaptureClass = document.querySelectorAll('.ball');
 const getRgbResult = document.getElementById('rgb-color');
+const getButton= document.getElementById('reset-game');
 
 // Fazendo referência ao Contéudo de pesquisa: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
 
@@ -46,3 +48,9 @@ for (let i = 0; i < getCaptureClass.length; i += 1) {
 for (let i = 0; i < getCaptureClass.length; i += 1) {
   getCaptureClass[i].style.background = gerarCor();
 }
+
+// ref: https://stackoverflow.com/questions/55127650/location-reloadtrue-is-deprecated
+function restart() {
+  window.location.reload();
+}
+getButton.addEventListener('click', restart);

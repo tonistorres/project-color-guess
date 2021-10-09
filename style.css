@@ -3,25 +3,29 @@ text-align: center;
 }
 
 #rgb-color{
-    text-align: center;
-    font-size: xx-large;
+font-size: xx-large;
+text-align: center;
 }
 
 #container-ball{
-    text-align: center;
+text-align: center;
 }
 
 #answer{
-text-align: center;
 font-size: xx-large;
 font-weight: 800;
+text-align: center;
 }
-.ball {
 
-    border-radius: 50% ;
-    border: 1px solid black;
-    display: inline-block;
-    width: 100px;
-    height: 100px;
+#container-button-reset{
+text-align: center;    
+}
+
+.ball {
+border-radius: 50% ;
+border: 1px solid black;
+display: inline-block;
+width: 100px;
+height: 100px;
 }
 
