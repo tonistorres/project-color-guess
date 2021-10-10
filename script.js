@@ -6,12 +6,6 @@ const getButton = document.getElementById('reset-game');
 const getScoreBoard = document.getElementById('score');
 const getChoose = document.getElementById('answer');
 
-window.onload = function onload() {
-  // eslint-disable-next-line no-use-before-define
-  colorResponse();
-  // eslint-disable-next-line no-use-before-define
-  recoverScore();
-};
 // Fazendo referência ao Contéudo de pesquisa: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
 
 /** A função Math.random() retorna um número float aleatório de 0 a 1. Ao multiplicar por 255, estamos dizendo que o valor máximo para o valor de qualquer elemento do rgb seja de 0 a 255. */
@@ -77,3 +71,8 @@ function score() {
 function saveScore() {
   localStorage.setItem('score', getScoreBoard.innerText);
 }
+
+window.onload = function onload() {
+  colorResponse();
+  recoverScore();
+};
