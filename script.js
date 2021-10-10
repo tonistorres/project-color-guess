@@ -1,19 +1,17 @@
 // Contribuição: Gabriel Pinheiro
+// declarando constante de captura de elemeento do DOM
+const getCaptureClass = document.querySelectorAll('.ball');
+const getRgbResult = document.getElementById('rgb-color');
+const getButton = document.getElementById('reset-game');
+const getScoreBoard = document.getElementById('score');
+const getChoose = document.getElementById('answer');
+
 window.onload = function onload() {
   // eslint-disable-next-line no-use-before-define
   colorResponse();
+  // eslint-disable-next-line no-use-before-define
+  recoverScore();
 };
-
-// eslint-disable-next-line no-use-before-define
-// window.onload = () => colorResponse();
-
-// capturando as bolas (divs) que são estilizadas pela classe .ball contidas dentro do arquivoo style.css.;
-// criando uma const de nome getCaptureClass que irá receber as divis que são refereciadas pela classe ball;
-// querySelectorAll foi o métod que capturou de fatos as divs que serão trabalhadas no DOM
-const getCaptureClass = document.querySelectorAll('.ball');
-const getRgbResult = document.getElementById('rgb-color');
-const getButton= document.getElementById('reset-game');
-
 // Fazendo referência ao Contéudo de pesquisa: https://wallacemaxters.com.br/blog/2021/02/20/como-gerar-cores-aleatorias-no-javascript
 
 /** A função Math.random() retorna um número float aleatório de 0 a 1. Ao multiplicar por 255, estamos dizendo que o valor máximo para o valor de qualquer elemento do rgb seja de 0 a 255. */
@@ -38,6 +36,10 @@ function captureCompareColor(event) {
   } else {
     captureAnswer.innerText = 'Errou! Tente novamente!';
   }
+  // eslint-disable-next-line no-use-before-define
+  score();
+  // eslint-disable-next-line no-use-before-define
+  saveScore();
 }
 
 //  nesse ponto fazemos um for passando por todos elementos que possui a classe ball e colocamso uma escutador click em cada um deles
@@ -54,3 +56,24 @@ function restart() {
   window.location.reload();
 }
 getButton.addEventListener('click', restart);
+
+function recoverScore() {
+  if (localStorage.getItem('score') === null) {
+    getScoreBoard.innerText = 0;
+  } else {
+    getScoreBoard.innerText = localStorage.getItem('score');
+  }
+  return getScoreBoard.innerText;
+}
+
+function score() {
+  let scoreGame = Number(recoverScore());
+  if (getChoose.innerText === 'Acertou!') {
+    scoreGame += 3;
+  }
+  getScoreBoard.innerText = scoreGame;
+}
+
+function saveScore() {
+  localStorage.setItem('score', getScoreBoard.innerText);
+}
